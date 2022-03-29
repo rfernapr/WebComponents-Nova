@@ -8,6 +8,47 @@
         <script type="module" src="/build/ejemplonova.esm.js"></script>
         <script nomodule src="/build/ejemplonova.js"></script>
     </head>
-    <body></body>
+    <body>
+        <custom-hello></custom-hello>
+        <custom-hello name="Rubén"></custom-hello>
+
+        <script>
+            class CustomHello extends HTMLElement {
+                constructor() {
+                    super();
+                }
+
+                connectedCallback() {
+                    if (this.isConnected) {
+                        const name = this.getAttribute('name');
+                        const h1 = document.createElement('h1');
+                        h1.id = "name";
+                        h1.textContent = `Hola ${name || 'mundo'}`;
+                        this.appendChild(h1);
+                    }
+                }
+
+                attributeChangedCallback(attribute, oldValue, newValue) {
+                    switch (attribute) {
+                        case 'name':
+                            this.querySelector('#name').textContent = `Hola ${newValue || 'mundo'}`;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                static get observedAttributes() {
+                    return ['name'];
+                }
+            }
+
+            customElements.define('custom-hello', CustomHello);
+
+            setTimeout(() => {
+                document.querySelector("custom-hello").setAttribute("name", "Rubén");
+            }, 10000);
+        </script>
+    </body>
 </html>
 
