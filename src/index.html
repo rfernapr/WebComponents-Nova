@@ -15,6 +15,18 @@
         <custom-button text="ABRIR MODAL 1" modal-id="001"></custom-button>
         <custom-button text="ABRIR MODAL 2" modal-id="002" theme="secondary" show-border="false"></custom-button>
 
+        <custom-modal modal-id="001">
+            <div slot="content">
+                <h2>MODAL 1</h2>
+            </div>
+        </custom-modal>
+
+        <custom-modal modal-id="002">
+            <div slot="content">
+                <h2>MODAL 2</h2>
+            </div>
+        </custom-modal>
+
         <script>
             class CustomHello extends HTMLElement {
                 constructor() {

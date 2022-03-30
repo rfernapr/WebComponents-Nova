@@ -1,0 +1,23 @@
+:host {
+    display: block;
+}
+
+.custom-modal-content {
+    margin-left: calc(50% - 400px);
+    margin-right: 50%;
+    margin-top: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 300px;
+    border: solid 2px black;
+    border-radius: 16px;
+    box-shadow: 5px 5px 5px grey;
+    background-color: white;
+    padding: 24px;
+}
+
+.hidden {
+    display: none;
+}
